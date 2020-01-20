@@ -1,33 +1,93 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { StaticQuery, graphql } from "gatsby"
+import _ from "lodash"
+import "./header.css"
+
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
+  <header>
+  <nav className="navbar navbar-expand-md bg-dark navbar-dark">
+  <a className="navbar-brand" href="#">
+    {siteTitle}
+  </a>
+  <button
+    className="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#collapsibleNavbar"
   >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+    <span className="navbar-toggler-icon"></span>
+  </button>
+  <div className="collapse navbar-collapse justify-content-stretch" id="collapsibleNavbar">
+    <ul className="navbar-nav mx-auto">
+      <li className="nav-item">
+        <Link to="#" className="nav-link">
+          Home
         </Link>
-      </h1>
-    </div>
+      </li>
+      <li className="nav-item">
+        <Link to="#aa" className="nav-link">
+          Experience
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="blog/page/1" className="nav-link">
+          Education
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="blog/page/1" className="nav-link">
+          Projects
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="blog/page/1" className="nav-link">
+          Skills
+        </Link>
+      </li>
+      {/* <li className="nav-item dropdown">
+        <a
+          className="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Categories
+        </a>
+        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+          <StaticQuery
+            query={graphql`
+              query CategoryQuery {
+                allMarkdownRemark(limit: 2000) {
+                  group(field: frontmatter___tags) {
+                    fieldValue
+                  }
+                }
+              }
+            `}
+            render={data => {
+              return data.allMarkdownRemark.group.map(g => {
+                return (
+                  <Link
+                    to={`tags/${g.fieldValue}`}
+                    className="dropdown-item"
+                  >
+                    {_.capitalize(g.fieldValue)}
+                  </Link>
+                )
+              })
+            }}
+          />
+        </div>
+      </li> */}
+    </ul>
+  </div>
+</nav>
   </header>
 )
 

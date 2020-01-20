@@ -1,0 +1,18 @@
+.navbar-brand {
+    font-size: 20px;
+    margin-top: -20px;
+  }
+  nav.navbar {
+    padding-bottom: 0px;
+    height: 60px;
+  }
+  ul.navbar-nav{
+        padding-right: 5px;
+        font-style: italic;
+        float:right;
+  }
+
+  .navbar-nav > li{
+    margin-left:20px;
+    margin-right:20px;
+  }
